@@ -19,8 +19,13 @@ public class QNAServiceImpl implements QNAService{
     }
 
     @Override
-    public int selectQNA(int qna_seq_id) {
+    public QNA selectQNA(int qna_seq_id) {
         return qnaDao.selectQNA(qna_seq_id);
+    }
+
+    @Override
+    public int updateQNA(QNA qna) {
+        return qnaDao.updateQNA(qna);
     }
 
     @Override
@@ -44,7 +49,7 @@ public class QNAServiceImpl implements QNAService{
     }
 
     @Override
-    public ArrayList<QNA> selectNewQuestionList(String issolved) {
-        return qnaDao.selectNewQuestionList(issolved);
+    public ArrayList<QNA> selectNewQuestionList() {
+        return qnaDao.selectNewQuestionList();
     }
 }

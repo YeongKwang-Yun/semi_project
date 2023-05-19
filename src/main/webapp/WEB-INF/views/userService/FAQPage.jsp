@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ICT02-30
@@ -6,247 +5,263 @@
   Time: 오후 2:23
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <title>Cookology FAQ  | PrepBootstrap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <title>Cookology FAQ | PrepBootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link rel="stylesheet" type="text/css" href="/cookology/resources/css/FAQService/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="/cookology/resources/css/FAQService/font-awesome/css/font-awesome.min.css" />
+    <%--  <link rel="stylesheet" type="text/css" href="/cookology/resources/css/FAQService/bootstrap.min.css" />--%>
+    <%--  <link rel="stylesheet" type="text/css" href="/cookology/resources/css/FAQService/font-awesome/css/font-awesome.min.css" />--%>
 
 
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <%--  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>--%>
+    <%--  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>--%>
+    <%--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+          href="/cookology/resources/css/FAQService/font-awesome/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          crossorigin="anonymous" />--%>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="/cookology/resources/css/FAQService/font-awesome/css/font-awesome.min.css"/>
+    <link href="/cookology/resources/css/reponsive.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          crossorigin="anonymous"/>
+
+    <script type="text/javascript">
+        $('.accordion-toggle').on('click', function () {
+            $('.panel-collapse').collapse('hide');
+        });
+        </script>
+
+    <style>
+        .event-button {
+            background-color: rgba(255, 131, 87, 1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .event-button:hover {
+            background-color: rgba(255, 131, 255, 1);
+        }
+
+        .event-button i {
+            margin-right: 5px;
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 <!-- Header Start -->
-<c:import url="/WEB-INF/views/common/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/common/header.jsp"/>
 <!-- Header End -->
 
+<!-- 스타일 속성을 적용하여 background-image webapp/resources/img/catagory-img/3.jpg 를 배경으로 한다. -->
+<div class="breadcumb-area" style="background-image: url('${pageContext.servletContext.contextPath}/resources/img/catagory-img/3.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumb-title text-center">
+                    <h2>F A Q</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+    .panel-default {
+        background-color: rgba(255, 131, 87, 1);
+        border-color: rgba(0, 0, 0, 1);
 
+
+    }
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e072"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+    .panel-default > .panel-heading {
+        color: #FFFFFF;
+        background-color: rgba(255, 131, 87, 1);
+        border-color: #E95627;
+
+    }
+
+    .panel-title > a {
+        display: block;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 1);
+        text-decoration: none;
+    }
+
+    .panel-body {
+        padding: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 1);
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: #DDDDDD;
+    }
+
+    .panel-group .panel + .panel {
+        margin-top: 5px;
+    }
+
+</style>
 <!-- ****** QnA Start ****** -->
 <div class="container">
 
-  <div class="page-header">
-    <a href="FAQPage.do"><h1>자주하는 질문(FAQ)</h1></a>&nbsp; &nbsp;
-    <a href="QNAPage.do"><h1>질문하기(QNA)</h1></a>&nbsp; &nbsp;
-    <a href="noticePage.do"><h1>공지사항</h1></a>
-  </div>
-
-  <!-- Bootstrap org.oaoc.cookology.FAQ - START -->
-  <div class="container">
-    <br />
-    <br />
-    <br />
-
-    <div class="alert alert-warning alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      자주하는 질문 모아놨어요. 이곳에서 해결하지 못하면<strong>*질문하기를 이용해주세요*</strong>나머진 알아서해 ㅡㅡ
+    <div class="page-header">
+        <a href="FAQPage.do"><h1>자주하는 질문(FAQ)</h1></a>&nbsp; &nbsp;
+        <c:url var="qna" value="QNAPage.do">
+            <c:param name="user_email" value="${ loginUser.user_email }"/>
+        </c:url>
+        <%--    <c:url var="qna" value="QNAPage.do">--%>
+        <%--      <c:param name="user_email" value="${ loginUser.user_email }" />--%>
+        <%--    </c:url>--%>
+        <a href="${ qna }"><h1>질문하기(QNA)</h1></a>&nbsp; &nbsp;
+        <a href="nlist.do"><h1>공지사항</h1></a>
     </div>
 
-    <br />
+    <!-- Bootstrap org.oaoc.cookology.FAQ - START -->
+    <div class="container">
+        <br/>
+        <br/>
+        <br/>
 
-    <div class="panel-group" id="accordion">
-      <div class="faqHeader">FAQ</div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is account registration required?</a>
-          </h4>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                    class="sr-only">Close</span></button>
+            자주하는 질문 모아놨어요. 이곳에서 해결하지 못하면<strong>*질문하기를 이용해주세요*</strong>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-            Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes.
-            This ensures a valid communication channel for all parties involved in any transactions.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Can I submit my own Bootstrap templates or themes?</a>
-          </h4>
-        </div>
-        <div id="collapseTen" class="panel-collapse collapse">
-          <div class="panel-body">
-            A lot of the content of the site has been submitted by the community. Whether it is a commercial element/template/theme
-            or a free one, you are encouraged to contribute. All credits are published along with the resources.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">What is the currency used for all transactions?</a>
-          </h4>
-        </div>
-        <div id="collapseEleven" class="panel-collapse collapse">
-          <div class="panel-body">
-            All prices for themes, templates and other items, including each seller's or buyer's account balance are in <strong>USD</strong>
-          </div>
-        </div>
-      </div>
 
-      <div class="faqHeader">일반회원 질문</div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Who cen sell items?</a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-          <div class="panel-body">
-            Any registed user, who presents a work, which is genuine and appealing, can post it on <strong>PrepBootstrap</strong>.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">I want to sell my items - what are the steps?</a>
-          </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-          <div class="panel-body">
-            The steps involved in this process are really simple. All you need to do is:
-            <ul>
-              <li>Register an account</li>
-              <li>Activate your account</li>
-              <li>Go to the <strong>Themes</strong> section and upload your theme</li>
-              <li>The next step is the approval step, which usually takes about 72 hours.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">How much do I get from each sale?</a>
-          </h4>
-        </div>
-        <div id="collapseFive" class="panel-collapse collapse">
-          <div class="panel-body">
-            Here, at <strong>PrepBootstrap</strong>, we offer a great, 70% rate for each seller, regardless of any restrictions, such as volume, date of entry, etc.
-            <br />
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Why sell my items here?</a>
-          </h4>
-        </div>
-        <div id="collapseSix" class="panel-collapse collapse">
-          <div class="panel-body">
-            There are a number of reasons why you should join us:
-            <ul>
-              <li>A great 70% flat rate for your items.</li>
-              <li>Fast response/approval times. Many sites take weeks to process a theme or template. And if it gets rejected, there is another iteration. We have aliminated this, and made the process very fast. It only takes up to 72 hours for a template/theme to get reviewed.</li>
-              <li>We are not an exclusive marketplace. This means that you can sell your items on <strong>PrepBootstrap</strong>, as well as on any other marketplate, and thus increase your earning potential.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">What are the payment options?</a>
-          </h4>
-        </div>
-        <div id="collapseEight" class="panel-collapse collapse">
-          <div class="panel-body">
-            The best way to transfer funds is via Paypal. This secure platform ensures timely payments and a secure environment.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">When do I get paid?</a>
-          </h4>
-        </div>
-        <div id="collapseNine" class="panel-collapse collapse">
-          <div class="panel-body">
-            Our standard payment plan provides for monthly payments. At the end of each month, all accumulated funds are transfered to your account.
-            The minimum amount of your balance should be at least 70 USD.
-          </div>
-        </div>
-      </div>
+        <br/>
 
-      <div class="faqHeader">일반회원 질문</div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">I want to buy a theme - what are the steps?</a>
-          </h4>
+        <div class="panel-group" id="accordion">
+            <div class="faqHeader">FAQ</div>
+            <!-- "list" 변수 설정 -->
+
+
+            <!-- Loop through the FAQ list and set an index variable -->
+            <c:if test="${ loginUser.is_admin ne 'Y'}">
+                <c:set var="list" value="${list}"/>
+                <c:forEach items="${list}" var="L" varStatus="index">
+
+                    <div class="panel panel-default" data-wow-delay=".${ index }*2s">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <!-- Change the href attribute to use an index to make it unique for each FAQ entry. -->
+                                <!-- href 속성을 인덱스를 사용하도록 변경하여 각 FAQ 항목에 대해 고유하게 만듭니다. -->
+                                <a id="toggle-link" class="accordion-toggle collapsed" data-toggle="collapse"
+                                   data-parent="#accordion" href="#collapse${index.count}">${ L.frequentlyAsked }</a>
+                            </h4>
+                        </div>
+                        <!-- Change the id attribute to use an index to make it unique for each FAQ entry. -->
+                        <!-- id 속성을 인덱스를 사용하도록 변경하여 각 FAQ 항목에 대해 고유하게 만듭니다. -->
+                        <div id="collapse${index.count}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                    ${ L.questions }
+                            </div>
+                        </div>
+
+                    </div>
+
+                </c:forEach>
+
+            </c:if>
+
+
+            <c:if test="${ loginUser.is_admin  eq 'Y'}">
+                <c:set var="list" value="${list}"/>
+                <c:forEach items="${list}" var="L" varStatus="index">
+
+                    <div class="panel panel-default" data-wow-delay=".(${ index }*2)s">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapse${index.count}">${ L.questions }</a>
+                            </h4>
+                        </div>
+                        <div id="collapse${index.count}" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                    ${ L.frequentlyAsked }
+                                <c:url var="update" value="moveFAQUpdate.do">
+                                    <c:param name="faq_seq_id" value="${ L.faq_seq_id }"/>
+                                </c:url>
+                                <button style="float: right" class="event-button"
+                                        onclick="javascript:location.href='${ update }';">
+                                    <i class="fas fa-question-circle"></i>FAQ수정하기
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <%-- <c:url var="adminok" value="admincheck.do">
+                       <c:param name="adminok" value="${ index }" />
+                     </c:url>--%>
+
+                </c:forEach>
+
+            </c:if>
         </div>
-        <div id="collapseFour" class="panel-collapse collapse">
-          <div class="panel-body">
-            Buying a theme on <strong>PrepBootstrap</strong> is really simple. Each theme has a live preview.
-            Once you have selected a theme or template, which is to your liking, you can quickly and securely pay via Paypal.
-            <br />
-            Once the transaction is complete, you gain full access to the purchased product.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Is this the latest version of an item</a>
-          </h4>
-        </div>
-        <div id="collapseSeven" class="panel-collapse collapse">
-          <div class="panel-body">
-            Each item in <strong>PrepBootstrap</strong> is maintained to its latest version. This ensures its smooth operation.
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <style>
-    .faqHeader {
-      font-size: 27px;
-      margin: 20px;
-    }
-    .panel-heading [data-toggle="collapse"]:after {
-      font-family: 'Glyphicons Halflings';
-      content: "\e072"; /* "play" icon */
-      float: right;
-      color: #F58723;
-      font-size: 18px;
-      line-height: 22px;
-      /* rotate "play" icon from > (right arrow) to down arrow */
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-    }
-    .panel-heading [data-toggle="collapse"].collapsed:after {
-      /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
-      color: #454444;
-    }
-  </style>
 
-  <!-- Bootstrap org.oaoc.cookology.FAQ - END -->
+    <!-- Bootstrap org.oaoc.cookology.FAQ - END -->
 
 </div>
 
 
 <!-- Footer Start -->
+
 <c:import url="/WEB-INF/views/common/footer.jsp"></c:import>
+
 <!-- Footer End -->
 
 </body>
